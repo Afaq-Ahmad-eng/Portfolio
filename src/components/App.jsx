@@ -1,11 +1,11 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import Header from "./components/Header";
-import LandingSection from "./components/LandingSection";
-import ProjectsSection from "./components/ProjectsSection";
-import ContactMeSection from "./components/ContactMeSection";
-import Footer from "./components/Footer";
-import { AlertProvider } from "./context/alertContext";
-import Alert from "./components/Alert";
+import Header from "../components/header/header";
+import LandingSection from "../components/landingSection/LandingSection";
+import ProjectsSection from "../components/projectSection/ProjectSection";
+import ContactMeSection from "../components/contactMeSection/ContactMeSection";
+import Footer from "../components/footer/Footer";
+import { AlertProvider } from "../context/alertContext/AlertContext";
+import Alert from "../components/alert/Alert";
 
 function App() {
   return (

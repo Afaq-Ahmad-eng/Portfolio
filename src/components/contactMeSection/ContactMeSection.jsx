@@ -16,9 +16,9 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import * as Yup from 'yup';
-import FullScreenSection from "./FullScreenSection";
-import useSubmit from "../hooks/useSubmit";
-import {useAlertContext} from "../context/alertContext";
+import FullScreenSection from "../fullScreenSection/FullScreenSection";
+import useSubmit from "../../hooks/useSubmit/useSubmit.jsx";
+import {useAlertContext} from "../../context/alertContext/AlertContext.jsx";
 
 const LandingSection = () => {
   const {isLoading, response, submit} = useSubmit();
