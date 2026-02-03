@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio showcasing development projects and technical skills. Built with React, Chakra UI, and Vite for performance and accessibility.
 
-**[Live Demo](https://afaq-ahmad-eng-portfolio.vercel.app/)** | **[GitHub](https://github.com/Afaq-Ahmad-eng)** | **[LinkedIn](https://www.linkedin.com/in/afaq-ahmad-ali/)** | **[Email](mailto:afaqahmad2593@gmail.com)**
+<a href="https://afaq-ahmad-eng-portfolio.vercel.app/" target="_blank" rel="noopener noreferrer"><strong>Live Demo</strong></a> | <a href="https://github.com/Afaq-Ahmad-eng" target="_blank" rel="noopener noreferrer"><strong>GitHub</strong></a> | <a href="https://www.linkedin.com/in/afaq-ahmad-ali/" target="_blank" rel="noopener noreferrer"><strong>LinkedIn</strong></a> | <a href="mailto:afaqahmad2593@gmail.com" target="_blank" rel="noopener noreferrer"><strong>Email</strong></a>
 
 ---
 
