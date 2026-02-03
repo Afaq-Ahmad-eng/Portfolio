@@ -1,13 +1,11 @@
 import { Image, Heading, VStack,HStack } from "@chakra-ui/react";
 import FullScreenSection from "../fullScreenSection/FullScreenSection";
 import picture from "../../assets/images/IMG_0210.jpg"
-const greeting = "Hello, I am Afaq Ahmad!";
 const bio1 = "Hi, I’m Afaq Ahmad - Software Developer";
 const bio2 = [
-  "Proficient in React",
-  "Experienced with Backend Technologies",
-  "Learning Software Testing",
-  "Exploring IT Automation with Python"
+  "Build full-stack web applications using React, Node.js, and Express",
+  "Develop REST APIs with authentication, validation, and role-based access",
+  "Write modular, maintainable code with basic scalability in mind"
 ];
 
 // Implement the UI for the LandingSection component according to the instructions.

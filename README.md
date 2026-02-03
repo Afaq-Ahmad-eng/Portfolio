@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio showcasing development projects and technical skills. Built with React, Chakra UI, and Vite for performance and accessibility.
 
-**[Live Demo](#)** | **[GitHub](https://github.com)** | **[LinkedIn](https://linkedin.com)** | **[Email](mailto:afaq@example.com)**
+**[Live Demo](#)** | **[GitHub](https://github.com/Afaq-Ahmad-eng)** | **[LinkedIn](https://www.linkedin.com/in/afaq-ahmad-ali/)** | **[Email](mailto:afaqahmad2593@gmail.com)**
 
 ---
 
@@ -55,7 +55,7 @@ Full-stack developer focused on building scalable applications and solving real-
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/portfolio.git
+git clone https://github.com/Afaq-Ahmad-eng/Portfolio.git
 cd portfolio
 
 # Install dependencies
@@ -111,7 +111,7 @@ Dynamically renders project cards with links to GitHub repos and live demos.
   title="Project Name"
   description="Brief description"
   imageSrc="/path/to/image"
-  link="https://github.com/yourrepo"
+  link="GitHub or live demo URL"
 />
 ```
 
