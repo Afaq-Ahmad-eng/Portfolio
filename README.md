@@ -2,7 +2,7 @@
 
 A modern, responsive portfolio showcasing development projects and technical skills. Built with React, Chakra UI, and Vite for performance and accessibility.
 
-**[Live Demo](#)** | **[GitHub](https://github.com/Afaq-Ahmad-eng)** | **[LinkedIn](https://www.linkedin.com/in/afaq-ahmad-ali/)** | **[Email](mailto:afaqahmad2593@gmail.com)**
+**[Live Demo](https://afaq-ahmad-eng-portfolio.vercel.app/)** | **[GitHub](https://github.com/Afaq-Ahmad-eng)** | **[LinkedIn](https://www.linkedin.com/in/afaq-ahmad-ali/)** | **[Email](mailto:afaqahmad2593@gmail.com)**
 
 ---
 
@@ -12,7 +12,50 @@ Full-stack developer focused on building scalable applications and solving real-
 
 ---
 
+## Key Interests
+
+- **Backend Engineering & APIs:** Designing RESTful services, authentication flows, data modeling, and scalable server-side logic.
+- **System Design Fundamentals:** Understanding trade-offs in architecture, scalability, reliability, and real-world constraints.
+- **Testing & Code Quality:** Writing unit, integration, and end-to-end tests to ensure correctness, stability, and confidence in production code.
+- **Performance & Reliability:** Optimizing database queries, API response times, caching strategies, and failure handling.
+- **Automation & Developer Productivity:** Improving workflows with scripts, CI/CD pipelines, and tooling that reduce manual effort and errors.
+- **Full-Stack Integration:** Building frontends that correctly consume APIs, handle edge cases, and reflect backend realities.
+- **Pragmatic UI Development:** Creating clean, accessible interfaces with a focus on correctness and maintainability rather than visual flash.
+
+---
+
 ## Tech Stack
+
+### Backend
+- Node.js, Express.js
+- REST API design, JWT-based authentication
+- Prisma ORM(Object Relational Mapping)
+
+### Databases
+- MongoDB (Non-SQL)
+- MYSQL (SQL)
+
+### Testing
+- Playwright (basic unit, end-to-end testing)
+
+### Frontend
+- React
+- HTML, CSS
+- Basic state management and API integration
+
+### Tooling & Automation
+- Git & GitHub
+- GitHub Actions (basic CI)
+- ESLint / Prettier
+- Environment-based configuration
+
+### Deployment
+- Vercel, Netlify (frontend)
+
+
+
+
+## Tech Stack for This Project
 
 **Frontend**
 - React 19 with React Router DOM
@@ -28,7 +71,7 @@ Full-stack developer focused on building scalable applications and solving real-
 
 **Other**
 - Git & GitHub version control
-- REST API integration
+- Third party api integration for contact form
 - Responsive design (mobile-first)
 
 ---
@@ -149,19 +192,6 @@ npm run build
 ### GitHub Pages
 Update `vite.config.js` with `base: "/portfolio/"` and deploy.
 
----
-
-## Next Steps
-
-- [ ] Update live demo link in README and navbar
-- [ ] Add real GitHub/LinkedIn URLs
-- [ ] Populate projects with descriptions and links
-- [ ] Test all external links (GitHub, website redirects)
-- [ ] Add project screenshots
-- [ ] Set up CI/CD pipeline (GitHub Actions)
-- [ ] Configure analytics (optional)
-
----
 
 ## License
 
