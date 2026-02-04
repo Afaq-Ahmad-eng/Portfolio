@@ -13,7 +13,7 @@ const Footer = () => {
           maxWidth="1024px"
           height={16}
         >
-          <p>Afaq Ahmad Ali Khan Kundi • © 2025</p>
+          <p>Afaq Ahmad Ali Khan Kundi • © 2026</p>
         </Flex>
       </footer>
     </Box>
