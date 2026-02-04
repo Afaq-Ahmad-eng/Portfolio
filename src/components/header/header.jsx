@@ -5,10 +5,10 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { Box, HStack } from "@chakra-ui/react";
 
 const socials = [
-  {
-    icon: faEnvelope,
-    url: "mailto:afaqahmad2593@gmail.com",
-  },
+  // {
+  //   icon: faEnvelope,
+  //   url: "mailto:afaqahmad2593@gmail.com",
+  // },
   {
     icon: faGithub,
     url: "https://github.com/Afaq-Ahmad-eng",
