@@ -1,6 +1,7 @@
 import { Image, Heading, VStack,HStack } from "@chakra-ui/react";
 import FullScreenSection from "../fullScreenSection/FullScreenSection";
 import picture from "../../assets/images/IMG_0210.jpg"
+import style from "./LandingSection.module.css"
 const bio1 = "Hi, I’m Afaq Ahmad - Software Developer";
 const bio2 = [
   "Build full-stack web applications using React, Node.js, and Express",
@@ -29,6 +30,7 @@ const LandingSection = () => (
   ))}
   </VStack>
   </VStack>
+  <VStack>
   <Image 
   src={picture} 
   alt="Ali"
@@ -36,6 +38,17 @@ const LandingSection = () => (
   objectFit="cover"
   borderRadius="lg"
   />
+  <div className={style.CvButtonContainer}>
+  <a 
+  href="/AFAQ-AHMAD-CV.pdf" 
+  target="_blank" 
+  download
+  rel="noopener noreferrer"
+  className={style.downloadBtn}
+  >Download CV
+  </a>
+  </div>
+  </VStack>
   </HStack>
   </FullScreenSection>
 );
