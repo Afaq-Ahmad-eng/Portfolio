@@ -1,21 +1,28 @@
 import { useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+// import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import Coursera from "../../assets/Coursera.png";
+import {
+  faGithub,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 import { Box, HStack } from "@chakra-ui/react";
 
 const socials = [
-  // {
-  //   icon: faEnvelope,
-  //   url: "mailto:afaqahmad2593@gmail.com",
-  // },
   {
     icon: faGithub,
+    type: "fa",
     url: "https://github.com/Afaq-Ahmad-eng",
   },
   {
     icon: faLinkedin,
-    url: "https://www.linkedin.com/in/afaq-ahmad-6065b3339",
+    type: "fa",
+    url: "https://www.linkedin.com/in/afaq-ahmad-ali",
+  },
+  {
+    icon: Coursera,
+    type: "img",
+    url: "https://www.coursera.org/learner/afaq-ahmad-eng",
   },
 ];
 
@@ -44,7 +51,7 @@ const Header = () => {
       } else {
         headerElement.style.transform = "translateY(0)";
       }
-      
+
       prevScrollY.current = currentScrollY;
     };
 
@@ -81,17 +88,31 @@ const Header = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <FontAwesomeIcon icon={social.icon} size="lg" />
+                  {social.type === "fa" ? (
+                    <FontAwesomeIcon icon={social.icon} size="lg" />
+                  ) : (
+                    <img
+                      src={social.icon}
+                      alt="Coursera"
+                      style={{ width: "30px", color: "white" }}
+                    />
+                  )}
                 </a>
               ))}
             </HStack>
           </nav>
           <nav>
             <HStack spacing={8}>
-              <a onClick={handleClick("projects")} style={{ cursor: "pointer" }}>
+              <a
+                onClick={handleClick("projects")}
+                style={{ cursor: "pointer" }}
+              >
                 Projects
               </a>
-              <a onClick={handleClick("contactme")} style={{ cursor: "pointer" }}>
+              <a
+                onClick={handleClick("contactme")}
+                style={{ cursor: "pointer" }}
+              >
                 Contact Me
               </a>
             </HStack>
