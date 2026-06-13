@@ -1,4 +1,4 @@
-import { Image, Heading, VStack,HStack } from "@chakra-ui/react";
+import { Flex, Image, Heading, VStack,HStack, Box } from "@chakra-ui/react";
 import FullScreenSection from "../fullScreenSection/FullScreenSection";
 import picture from "../../assets/images/IMG_0210.jpg"
 import style from "./LandingSection.module.css"
@@ -18,38 +18,74 @@ const LandingSection = () => (
     isDarkBackground
     backgroundColor="#2A4365"
   >
-    <HStack spacing={16}>
-  <VStack>
-  <Heading>{bio1}</Heading>
-  <VStack spacing={2}>
-  {bio2.map((line,index) => (
-    <Heading 
-    key={index}
-    size="l"
-    >{line}</Heading>
-  ))}
-  </VStack>
-  </VStack>
-  <VStack>
-  <Image 
-  src={picture} 
-  alt="Ali"
-  boxSize="300px"
-  objectFit="cover"
-  borderRadius="lg"
-  />
-  <div className={style.CvButtonContainer}>
-  <a 
-  href="/AFAQ-AHMAD-CV.pdf" 
-  target="_blank" 
-  download
-  rel="noopener noreferrer"
-  className={style.downloadBtn}
-  >Download CV
-  </a>
-  </div>
-  </VStack>
-  </HStack>
+    <Box 
+      width="100vw" 
+      p='2'
+      boxSize="border-box"   
+    >
+    <Flex
+      // 1. FIXED: Row on desktop, vertical column on mobile screens
+      flexDirection={{ base: "column-reverse", md: "row" }} 
+      
+      // 2. FIXED: Changed '100vw' to '100%' and set a clean max-width constraint
+      width="100vw"
+      
+      // 3. Spacing controls: spaces items vertically on mobile, horizontally on desktop
+      gap={{ base: 8, md: 16 }}
+      
+      // 4. Centers elements perfectly regardless of layout orientation
+      justifyContent="center"
+      alignItems="center"
+      
+      // 5. Horizontal safety padding for smaller screens
+      px={{ base: 8, md: 12 }}
+      py={{ base: 10, md: 0 }}
+    >
+      {/* Left Side: Bio Text */}
+      <VStack 
+        alignItems={{ base: "center", md: "flex-start" }} // Centers text on mobile, left-aligns on desktop
+        textAlign={{ base: "center", md: "left" }}
+        spacing={4}
+      >
+        <Heading size="2xl">{bio1}</Heading>
+        <VStack spacing={2} align={{ base: "center", md: "flex-start" }}>
+          {bio2.map((line, index) => (
+            <Heading 
+              key={index} 
+              size="lg"
+              fontWeight="medium"
+            >
+              {line}
+            </Heading>
+          ))}
+        </VStack>
+      </VStack>
+
+      {/* Right Side: Image & CV Button */}
+      <VStack spacing={{ base: 8, md: 6 }}>
+        <Image 
+          src={picture} 
+          alt="Ali"
+          // FIXED: Scaled image down for tiny mobile viewports so it never overflows
+          boxSize={{ base: "220px", sm: "280px", md: "300px" }}
+          objectFit="cover"
+          borderRadius={{ base: "full", md: "xl" }} // Optional: "full" makes it a clean professional circle avatar
+          boxShadow="xl"
+        />
+        <Box className={style.CvButtonContainer}>
+          <a 
+            href="/AFAQ-AHMAD-CV.pdf" 
+            target="_blank" 
+            download
+            rel="noopener noreferrer"
+            className={style.downloadBtn}
+          >
+            Download CV
+          </a>
+        </Box>
+      </VStack>
+    </Flex>
+    </Box>
   </FullScreenSection>
 );
 

@@ -33,10 +33,11 @@ const Header = () => {
 
   return (
     <Box
-      position="fixed"
+      position="sticky"
       top={0}
       left={0}
       right={0}
+      width='100%'
       backgroundColor="#18181b"
       zIndex={1000}
       boxShadow="sm"
@@ -47,7 +48,7 @@ const Header = () => {
           flexDirection="row"
           justifyContent="space-between"
           alignItems="center"
-          py={4}
+          py={{ base: 10, md: 4 }}
           // 2. Controlled responsive padding (tight on mobile, open on desktop)
           px={{ base: 4, sm: 10, md: 20 }} 
           // 3. Single clean spacing property to control unexpected layout shifts

@@ -11,8 +11,8 @@ function App() {
   return (
     <ChakraProvider>
       <AlertProvider>
+        <Header />
         <main>
-          <Header />
           <LandingSection />
           <ProjectsSection />
           <ContactMeSection />
