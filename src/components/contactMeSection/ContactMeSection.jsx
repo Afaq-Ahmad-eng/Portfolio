@@ -68,11 +68,17 @@ const LandingSection = () => {
       py={16}
       spacing={8}
     >
-      <VStack w="1024px" p={32} alignItems="flex-start">
-        <Heading as="h1" id="contactme-section">
+      <VStack 
+      width="100%" 
+      maxWidth="1280px"
+      mx="auto"
+      px={{ base: 4, sm: 8, md: 12, lg: 32 }}
+      py={{ base: 6, md: 8 }}
+      alignItems="flex-start">
+        <Heading as="h1" id="contactme-section" size={{ base: "xl", md: "2xl" }}>
           Contact me
         </Heading>
-        <Box p={6} rounded="md" w="100%">
+        <Box p={{ base: 4, md: 6 }} rounded="md" w="100%">
           <form onSubmit={formik.handleSubmit}>
             <VStack spacing={4}>
               <FormControl isInvalid={formik.touched.firstName && formik.errors.firstName}>
@@ -113,7 +119,7 @@ const LandingSection = () => {
                 <Textarea
                   id="comment"
                   name="comment"
-                  height={250}
+                  height={{ base: 200, md: 250 }}
                   {...formik.getFieldProps('comment')}
                 />
                 <FormErrorMessage>{formik.errors.comment}</FormErrorMessage>

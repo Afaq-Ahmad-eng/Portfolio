@@ -19,7 +19,7 @@ const LandingSection = () => (
     backgroundColor="#2A4365"
   >
     <Box 
-      width="100vw" 
+      width="100%" 
       p='2'
       boxSize="border-box"   
     >
@@ -27,8 +27,8 @@ const LandingSection = () => (
       // 1. FIXED: Row on desktop, vertical column on mobile screens
       flexDirection={{ base: "column-reverse", md: "row" }} 
       
-      // 2. FIXED: Changed '100vw' to '100%' and set a clean max-width constraint
-      width="100vw"
+      // 2. FIXED: Changed '100vw' to '100%' to prevent horizontal overflow
+      width="100%"
       
       // 3. Spacing controls: spaces items vertically on mobile, horizontally on desktop
       gap={{ base: 8, md: 16 }}
