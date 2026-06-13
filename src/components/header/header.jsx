@@ -1,19 +1,12 @@
-import { useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import Coursera from "../../assets/Coursera.png";
-import {
-  faGithub,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+// Add faBriefcase (or faCode) and faEnvelope here:
+import { faBriefcase, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { Box, HStack } from "@chakra-ui/react";
 
 const socials = [
-  {
-    icon: faGithub,
-    type: "fa",
-    url: "https://github.com/Afaq-Ahmad-eng",
-  },
+  { icon: faGithub, type: "fa", url: "https://github.com/Afaq-Ahmad-eng" },
   {
     icon: faLinkedin,
     type: "fa",
@@ -27,9 +20,6 @@ const socials = [
 ];
 
 const Header = () => {
-  const headerRef = useRef(null);
-  const prevScrollY = useRef(window.scrollY);
-
   const handleClick = (anchor) => () => {
     const id = `${anchor}-section`;
     const element = document.getElementById(id);
@@ -41,46 +31,31 @@ const Header = () => {
     }
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      const headerElement = headerRef.current;
-
-      if (currentScrollY > prevScrollY.current) {
-        headerElement.style.transform = "translateY(-200px)";
-      } else {
-        headerElement.style.transform = "translateY(0)";
-      }
-
-      prevScrollY.current = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   return (
     <Box
-      ref={headerRef}
       position="fixed"
       top={0}
       left={0}
       right={0}
-      transitionProperty="transform"
-      transitionDuration=".3s"
-      transitionTimingFunction="ease-in-out"
       backgroundColor="#18181b"
+      zIndex={1000}
+      boxShadow="sm"
     >
-      <Box color="white" maxWidth="1280px" margin="0 auto">
+      <Box color="white" maxWidth="1280px" margin="0 auto" width="100%">
         <HStack
-          spacing={6}
-          px={20}
-          py={4}
+          width="100%" // 1. Crucial: Makes sure the stack stretches across the whole screen width
+          flexDirection="row"
           justifyContent="space-between"
           alignItems="center"
+          py={4}
+          // 2. Controlled responsive padding (tight on mobile, open on desktop)
+          px={{ base: 4, sm: 10, md: 20 }} 
+          // 3. Single clean spacing property to control unexpected layout shifts
+          spacing={{ base: 2, sm: 4 }}
         >
           <nav>
-            <HStack spacing={4}>
+            {/* Tighter spacing for social icons on small screens */}
+            <HStack spacing={{ base: 3, sm: 4 }}>
               {socials.map((social, index) => (
                 <a
                   key={index}
@@ -94,26 +69,33 @@ const Header = () => {
                     <img
                       src={social.icon}
                       alt="Coursera"
-                      style={{ width: "30px", color: "white" }}
+                      style={{ width: "30px", height: "auto" }}
                     />
                   )}
                 </a>
               ))}
             </HStack>
           </nav>
+
           <nav>
-            <HStack spacing={8}>
-              <a
-                onClick={handleClick("projects")}
-                style={{ cursor: "pointer" }}
-              >
-                Projects
+            {/* Adjusted base spacing so icons don't drift or clash on narrow viewports */}
+            <HStack spacing={{ base: 5, md: 12 }}>
+              <a onClick={handleClick("projects")} style={{ cursor: "pointer" }}>
+                <Box as="span" display={{ base: "inline", md: "none" }}>
+                  <FontAwesomeIcon icon={faBriefcase} size="lg" />
+                </Box>
+                <Box as="span" display={{ base: "none", md: "inline" }}>
+                  Projects
+                </Box>
               </a>
-              <a
-                onClick={handleClick("contactme")}
-                style={{ cursor: "pointer" }}
-              >
-                Contact Me
+              
+              <a onClick={handleClick("contactme")} style={{ cursor: "pointer" }}>
+                <Box as="span" display={{ base: "inline", md: "none" }}>
+                  <FontAwesomeIcon icon={faEnvelope} size="lg" />
+                </Box>
+                <Box as="span" display={{ base: "none", md: "inline" }}>
+                  Contact Me
+                </Box>
               </a>
             </HStack>
           </nav>
