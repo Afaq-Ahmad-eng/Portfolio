@@ -1,4 +1,14 @@
-import { Flex, Image, Heading, VStack,HStack, Box } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Heading,
+  Image,
+  VStack,
+  Button,
+  Link as ChakraLink,
+} from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import FullScreenSection from "../fullScreenSection/FullScreenSection";
 import picture from "../../assets/images/IMG_0210.jpg"
 import style from "./LandingSection.module.css"
@@ -11,82 +21,108 @@ const bio2 = [
 
 // Implement the UI for the LandingSection component according to the instructions.
 // Use a combination of Avatar, Heading and VStack components.
-const LandingSection = () => (
-  <FullScreenSection
-    justifyContent="center"
-    alignItems="center"
-    isDarkBackground
-    backgroundColor="#2A4365"
-  >
-    <Box 
-      width="100%" 
-      p='2'
-      boxSize="border-box"   
-    >
-    <Flex
-      // 1. FIXED: Row on desktop, vertical column on mobile screens
-      flexDirection={{ base: "column-reverse", md: "row" }} 
-      
-      // 2. FIXED: Changed '100vw' to '100%' to prevent horizontal overflow
-      width="100%"
-      
-      // 3. Spacing controls: spaces items vertically on mobile, horizontally on desktop
-      gap={{ base: 8, md: 16 }}
-      
-      // 4. Centers elements perfectly regardless of layout orientation
+const LandingSection = () => {
+  return (
+    <FullScreenSection
       justifyContent="center"
       alignItems="center"
-      
-      // 5. Horizontal safety padding for smaller screens
-      px={{ base: 8, md: 12 }}
-      py={{ base: 10, md: 0 }}
+      isDarkBackground
+      backgroundColor="#18181b" // 60% Dominant Background
+      // FIX 1: Replaced py=0 on desktop with defensive padding so content never hugs the screen edges
+      py={{ base: 20, md: 24 }} 
     >
-      {/* Left Side: Bio Text */}
-      <VStack 
-        alignItems={{ base: "center", md: "flex-start" }} // Centers text on mobile, left-aligns on desktop
-        textAlign={{ base: "center", md: "left" }}
-        spacing={4}
+      <Box 
+        width="100%" 
+        maxW="container.xl" 
+        // Horizontal padding remains fluidly scaled to prevent layout overflow
+        px={{ base: 6, sm: 8, md: 12 }} 
+        boxSizing="border-box"
       >
-        <Heading size="2xl">{bio1}</Heading>
-        <VStack spacing={2} align={{ base: "center", md: "flex-start" }}>
-          {bio2.map((line, index) => (
-            <Heading 
-              key={index} 
-              size="lg"
-              fontWeight="medium"
-            >
-              {line}
-            </Heading>
-          ))}
-        </VStack>
-      </VStack>
-
-      {/* Right Side: Image & CV Button */}
-      <VStack spacing={{ base: 8, md: 6 }}>
-        <Image 
-          src={picture} 
-          alt="Ali"
-          // FIXED: Scaled image down for tiny mobile viewports so it never overflows
-          boxSize={{ base: "220px", sm: "280px", md: "300px" }}
-          objectFit="cover"
-          borderRadius={{ base: "full", md: "xl" }} // Optional: "full" makes it a clean professional circle avatar
-          boxShadow="xl"
-        />
-        <Box className={style.CvButtonContainer}>
-          <a 
-            href="/AFAQ-AHMAD-CV.pdf" 
-            target="_blank" 
-            download
-            rel="noopener noreferrer"
-            className={style.downloadBtn}
+        <Flex
+          flexDirection={{ base: "column-reverse", md: "row" }}
+          width="100%"
+          // FIX 2: Controlled layout gap ensures spatial comfort during element wrapping
+          gap={{ base: 12, md: 16 }}
+          justifyContent="space-between"
+          alignItems="center"
+        >
+          {/* LEFT SIDE: BIO TEXT */}
+          <VStack
+            alignItems={{ base: "center", md: "flex-start" }}
+            textAlign={{ base: "center", md: "left" }}
+            spacing={6}
+            flex="1"
+            width="100%"
           >
-            Download CV
-          </a>
-        </Box>
-      </VStack>
-    </Flex>
-    </Box>
-  </FullScreenSection>
-);
+            <Heading as="h1" size={{ base: "xl", md: "2xl" }} color="white">
+              {bio1}
+            </Heading>
+            
+            <VStack spacing={3} align={{ base: "center", md: "flex-start" }}>
+              {bio2.map((line, index) => (
+                <Heading
+                  key={index}
+                  as="h2"
+                  size={{ base: "md", md: "lg" }}
+                  fontWeight="medium"
+                  color="gray.300" // 30% Secondary sub-text
+                >
+                  {line}
+                </Heading>
+              ))}
+            </VStack>
+          </VStack>
+
+          {/* RIGHT SIDE: IMAGE & ACCENT CV BUTTON */}
+          <VStack 
+            spacing={6} 
+            flex="1" 
+            alignItems="center" 
+            justifyContent="center"
+            width="100%"
+          >
+            <Image
+              src={picture}
+              alt="Afaq Ahmad"
+              objectFit="cover"
+              width={{ base: "60%", sm: "45%", md: "75%" }}
+              maxW="300px" // Slightly optimized max bounds to balance text hierarchy weight
+              aspectRatio="1/1"
+              borderRadius={{ base: "full", md: "2xl" }}
+              boxShadow="2xl"
+              border="4px solid"
+              borderColor="#2A4365" // 30% Structural Slate Blue
+            />
+
+            {/* 10% ACCENT: PREMIUM PURPLE DOWNLOAD CALL-TO-ACTION */}
+            <ChakraLink
+              href="/AFAQ-AHMAD-CV.pdf"
+              isExternal
+              download
+              _hover={{ textDecoration: "none" }}
+              width={{ base: "60%", sm: "45%", md: "75%" }}
+              maxW="300px"
+            >
+              <Button
+                leftIcon={<FontAwesomeIcon icon={faDownload} size="sm" />}
+                bg="#512DA8" // 10% Accent Purple
+                color="white"
+                size="lg"
+                width="100%"
+                borderRadius="lg"
+                boxShadow="lg"
+                _hover={{ bg: "#43258E", transform: "translateY(-2px)" }}
+                _active={{ bg: "#341B75" }}
+                transition="all 0.2s ease-in-out"
+              >
+                Download CV
+              </Button>
+            </ChakraLink>
+          </VStack>
+        </Flex>
+      </Box>
+    </FullScreenSection>
+  );
+};
 
 export default LandingSection;

@@ -1,5 +1,5 @@
 import FullScreenSection from "../fullScreenSection/FullScreenSection";
-import { Box, Heading } from "@chakra-ui/react";
+import { Box, Heading, Container } from "@chakra-ui/react";
 import Cards from "../cards/Cards";
 
 // ✅ Import your images at the top
@@ -42,31 +42,41 @@ const projects = [
 const ProjectsSection = () => {
   return (
     <FullScreenSection
-      backgroundColor="#14532d"
+      backgroundColor="#18181b"
       isDarkBackground
       p={{ base: 4, md: 8 }}
-      alignItems="flex-start"
+      // FIX 1: Changed from flex-start to stretch so the container stretches across screen breakpoints
+      alignItems="stretch"
       spacing={8}
     >
-      <Heading as="h1" id="projects-section" size={{ base: "xl", md: "2xl" }}>
-        Featured Projects
-      </Heading>
-      <Box
-        display="grid"
-        gridTemplateColumns={{ base: "1fr", md: "repeat(2, 1fr)" }}
-        gridGap={{ base: 4, md: 8 }}
-        width="100%"
-      >
-        {projects.map((project) => (
-          <Cards
-            key={project.title}
-            title={project.title}
-            description={project.description}
-            imageSrc={project.imageSrc}
-            link={project.link}
-          />
-        ))}
-      </Box>
+      <Container id="projects-section" maxW="container.xl">
+        {/* FIX 2: Added color="white" to ensure it's visible on the charcoal background */}
+        <Heading as="h1" size={{ base: "xl", md: "2xl" }} mb={8} color="white">
+          Featured Projects
+        </Heading>
+        
+        <Box
+          display="grid"
+          gridTemplateColumns={{
+            base: "1fr",
+            sm: "1fr",
+            md: "repeat(2, 1fr)",
+            lg: "repeat(3, 1fr)",
+          }}
+          gap={{ base: 4, md: 6, lg: 8 }}
+          width="100%"
+        >
+          {projects.map((project) => (
+            <Cards
+              key={project.title}
+              title={project.title}
+              description={project.description}
+              imageSrc={project.imageSrc}
+              link={project.link}
+            />
+          ))}
+        </Box>
+      </Container>
     </FullScreenSection>
   );
 };
