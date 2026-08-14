@@ -1,0 +1,24 @@
+name: Deploy Portfolio to OCI
+
+on:
+  push:
+    branches:
+      - main  # Runs whenever you push code to main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to OCI via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.OCI_HOST }}
+          username: ${{ secrets.OCI_USERNAME }}
+          key: ${{ secrets.OCI_KEY }}
+          script: |
+            cd /var/www/portfolio/Portfolio
+            git pull origin main
+            npm install
+            npm run build
+            sudo systemctl restart nginx
