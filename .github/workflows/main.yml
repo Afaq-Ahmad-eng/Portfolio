@@ -21,6 +21,6 @@ jobs:
             git fetch origin main
             git reset --hard origin/main
             npm install
-            rm -rf dist
             npm run build
+            sudo chmod -R 755 dist
             sudo systemctl restart nginx
