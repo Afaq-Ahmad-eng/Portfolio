@@ -12,7 +12,7 @@ import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import FullScreenSection from "../fullScreenSection/FullScreenSection";
 import picture from "../../assets/images/Portfolio-image.jpeg"
 import style from "./LandingSection.module.css"
-const bio1 = "Hi, I’m Afaq Ahmad - Software Developer";
+const bio1 = "Hi, I’m Afaq Ahmad Ali Khan Kundi - Software Developer";
 const bio2 = [
   "Build full-stack web applications using React, Node.js, and Express",
   "Develop REST APIs with authentication, validation, and role-based access",
