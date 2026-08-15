@@ -10,7 +10,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import FullScreenSection from "../fullScreenSection/FullScreenSection";
-import picture from "../../assets/images/IMG_0210.jpg"
+import picture from "../../assets/images/Portfolio-image.jpeg"
 import style from "./LandingSection.module.css"
 const bio1 = "Hi, I’m Afaq Ahmad - Software Developer";
 const bio2 = [
